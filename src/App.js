@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import TodoList from "./components/Todo/TodoList";
 import Context from "./context";
 import Loader from "./components/Loader";
+import Modal from "./components/modal/Modal";
 
 const AddTodo = React.lazy(() => import('./components/Todo/AddTodo'))
 
@@ -10,7 +11,7 @@ function App() {
   const [loading, setLoading] = React.useState(true)
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=4')
       .then(response => response.json())
       .then(todos => {
         setTimeout(() => {
@@ -48,6 +49,8 @@ function App() {
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1>React ToDo</h1>
+
+        <Modal />
 
         <React.Suspense>
           <AddTodo onCreate={addTodo} />
