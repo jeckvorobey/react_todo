@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function useInputValue(dafaultValue = '') {
   const [value, setValue] = useState(dafaultValue)
@@ -25,12 +25,13 @@ function AddTodo({ onCreate }) {
     }
   }
 
-  return (<form style={{
-    marginBottom: '1rem'
-  }} onSubmit={submitHandler}>
-    <input {...input.bind} />
-    <button type="submit">Добавить</button>
-  </form >
+  return (
+    <form style={{
+      marginBottom: '1rem'
+    }} onSubmit={submitHandler}>
+      <input {...input.bind} />
+      <button type="submit">Добавить</button>
+    </form >
   )
 }
 
